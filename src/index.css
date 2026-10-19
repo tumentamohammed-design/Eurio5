@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+/* Theme colors as RGB triplets (not hex) so Tailwind's opacity modifiers
+ * (bg-brand-500/10, etc.) keep working — Tailwind's CSS-variable color
+ * pattern requires "R G B" triplets, combined as rgb(var(--x) / <alpha>).
+ * Defaults match the founder's brand green (#0f7a3d) and accent yellow
+ * (#ffcc00). src/lib/themePrefs.js overwrites these at runtime from
+ * localStorage, which is what makes the Settings tab's color pickers work
+ * without needing a rebuild.
+ */
+:root {
+  --brand-200: 187 247 214;
+  --brand-300: 126 226 168;
+  --brand-400: 62 203 126;
+  --brand-500: 15 122 61;
+  --brand-600: 12 100 50;
+  --accent-300: 255 224 102;
+  --accent-400: 255 204 0;
+  --accent-500: 230 184 0;
+  --app-font-scale: 112%;
+}
+
+html {
+  font-size: var(--app-font-scale);
+}
+
+input[type='range'] {
+  accent-color: rgb(var(--brand-500));
+}
